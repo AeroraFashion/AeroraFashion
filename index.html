@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <meta
+    name="description"
+    content="Welcome to JAS Emporium - Your one-stop shop for trendy apparel."
+  />
+  <title>Aerora Jerseys</title>
+  <link rel="icon" type="image/png" href="logo.png" />
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #000000;
+      --muted: #9ca3af;
+      --accent: #000000;
+      --accent-dark: #000000;
+
+      /* extras from your first style to get the premium look */
+      --gray-light: #f5f5f5;
+      --gray-dark: #333333;
+      --gold: #d4af37;
+      --border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* --- Header --- */
+    header {
+      background: var(--accent);
+      color: #fff;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      border-bottom: 2px solid var(--gold);
+    }
+    .header-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .brand {
+      font-weight: 800;
+      font-size: 1.8em;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand img {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 2px solid var(--gold);
+      object-fit: cover;
+      background: #fff;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: 600;
+    }
+    nav a:hover { text-decoration: underline; }
+    .shop-btn {
+      background: #fff;
+      color: var(--accent);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+    .shop-btn:hover { background: #f0f0f0; }
+
+    /* --- Offer Bar --- */
+    .offer-bar {
+      background: #000;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* --- Slider --- */
+    .slider {
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      position: relative;
+    }
+    .slides {
+      display: flex;
+      height: 400px;
+      width: 100%;
+      animation: slide 16s infinite;
+    }
+    .slides img {
+      width: 100%;
+      flex-shrink: 0;
+      height: 400px;
+      object-fit: cover;
+    }
+    @keyframes slide {
+      0%   { transform: translateX(0%); }
+      20%  { transform: translateX(0%); }
+      25%  { transform: translateX(-100%); }
+      45%  { transform: translateX(-100%); }
+      50%  { transform: translateX(-200%); }
+      70%  { transform: translateX(-200%); }
+      75%  { transform: translateX(-300%); }
+      95%  { transform: translateX(-300%); }
+      100% { transform: translateX(0%); }
+    }
+
+    /* --- Collections Grid --- */
+    .wrap { max-width: 1100px; margin: auto; padding: 20px; }
+    .grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+    .tile {
+      border: 1px solid var(--fg);
+      border-radius: 14px;
+      text-decoration: none;
+      color: var(--fg);
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      background: #fff;
+    }
+    .tile:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .tile img { width: 100%; height: 180px; object-fit: cover; }
+    .tile .label { padding: 12px; font-weight: bold; text-align: center; }
+
+    /* --- Catalog Section --- */
+    .catalog-section {
+      background: #000000;
+      color: #000000; /* keep as you set; headings get white bg */
+      padding: 50px 20px;
+      text-align: center;
+      margin-top: 40px;
+      border-radius: 12px;
+    }
+    .catalog-section h2 {
+      font-size: 2em;
+      background-color: #ffffff;
+      margin: 0 auto 20px;
+      display: inline-block;
+      padding: 6px 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-radius: 8px;
+    }
+
+    /* product grid (missing in your 2nd code) */
+    .product-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* product card (white version for Jerseys list, black version for Oversized below) */
+    .product-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s;
+      display: block;
+    }
+    .product-card:hover { transform: translateY(-5px); }
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .product-card p {
+      margin: 10px 0 0;
+      font-size: 16px;
+      font-weight: bold;
+      color: #111;
+    }
+    .product-card span {
+      display: block;
+      margin-top: 5px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* black product cards (your second style override kept) */
+    .product {
+      background: #111;
+      border: none;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.2s;
+      text-decoration: none;
+      color: #fff;
+      display: block;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    }
+    .product:hover { transform: translateY(-5px); }
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .product p {
+      margin: 10px 0 0;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    /* Back to Catalog button */
+    .back-btn {
+      display: inline-block;
+      margin: 20px auto 0;
+      padding: 10px 18px;
+      background: #000000;
+      color: #ffffff;
+      border: 2px solid #000000;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .back-btn:hover {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    /* --- Contact --- */
+    .contact {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+    .contact h2 { font-size: 1.8em; margin-bottom: 20px; }
+    .contact p { margin: 10px 0; font-size: 1.1em; }
+    .contact a { color: #000000; text-decoration: none; font-weight: bold; }
+    .contact a:hover { text-decoration: underline; }
+
+    /* --- Footer --- */
+    footer {
+      background-color: #000;
+      border-top: 1px solid var(--muted);
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #ffffff;
+    }
+
+    /* responsive tweaks */
+    @media (max-width: 768px) {
+      .slides, .slides img { height: 300px; }
+      .slider { height: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-wrap">
+      <div class="brand">
+        <img src="logo.png" alt="Logo" />
+        <span>Aerora Jersey</span>
+      </div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#collections">Collections</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button
+        class="shop-btn"
+        onclick="document.getElementById('collections').scrollIntoView({behavior: 'smooth'})"
+      >🛒 Shop</button>
+    </div>
+  </header>
+
+  <!-- OFFER BAR -->
+  <div class="offer-bar">
+    🎉 10% OFF on all items! 🛍 Diwali Sale! ⏳ Limited Time Offer!
+  </div>
+
+  <!-- SLIDER -->
+  <div class="slider" id="home">
+    <div class="slides">
+      <!-- keep your exact file names; fixed scr -> src -->
+      <img src="poster1.png" alt="Poster 1" />
+      <img src="poster2.png" alt="Poster 2" />
+      <img src="poster3.png" alt="Poster 3" />
+      <img src="poster4.png" alt="Poster 4" />
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="wrap" id="collections">
+    <h1 style="text-align:center;">Our Collections</h1>
+    <p style="text-align:center; color:#555;">Click any tile to view full collections.</p>
+
+    <div class="grid" style="margin-top:16px;">
+      <a class="tile" href="#jersey">
+        <img src="Jersey.webp" alt="Jersey" />
+        <div class="label">Jersey</div>
+      </a>
+
+      <!-- fixed invalid anchor: id cannot contain spaces. Use oversize section id="oversized-jersey" and update link -->
+      <a class="tile" href="#oversized-jersey">
+        <img src="trendjersey1.png" alt="Oversized Jersey" />
+        <div class="label">Oversized Jersey</div>
+      </a>
+    </div>
+  </main>
+
+  <!-- JERSEY CATALOG -->
+  <section id="jersey" class="catalog-section">
+    <h2>Jerseys</h2>
+    <div class="product-grid">
+      <!-- keep your exact links, file names, and pricing text -->
+      <a class="product-card" href="details.html?img=acmilan.png&name=AC Milan Jersey&price=255&sizes=S,M,L,XL">
+        <img src="Acmilan.png" alt="AC Milan Jersey" />
+        <p>AC Milan Jersey - ₹255</p>
+      </a>
+
+      <a class="product-card" href="details.html?img=rma1.png&name=Real Madrid Jersey&price=260&sizes=S,M,L,XL">
+        <img src="RMA1.png" alt="Real Madrid Jersey" />
+        <p>Real Madrid Jersey - ₹260</p>
+      </a>
+
+      <a class="product-card" href="details.html?img=barca1.png&name=FC Barcelona Jersey&price=260&sizes=S,M,L,XL">
+        <img src="barca1.png" alt="FC Barcelona Jersey" />
+        <p>FC Barcelona Jersey - ₹260</p>
+      </a>
+
+      <a class="product-card" href="details.html?img=manutd1.png&name=Manchester United Jersey&price=255&sizes=S,M,L,XL">
+        <img src="ManUTD1.png" alt="Manchester jersey" />
+        <p>Manchester United jersey- ₹255</p>
+      </a>
+
+      <a class="product-card" href="details.html?img=fcporto.png&name=FC porto Jersey&price=240&sizes=S,M,L,XL">
+        <img src="FCporto.png" alt="FC porto Jersey" />
+        <p>FC porto Jersey - ₹240</p>
+      </a>
+
+      <a class="product-card" href="details.html?img=brazil1.png&name=Brazil Nation Retro kit Jersey&price=259&sizes=S,M,L,XL">
+        <img src="Brazil1.png" alt="Brazil kit" />
+        <p>Brazil National Retro kit - ₹259</p>
+      </a>
+
+      <a class="product-card" href="details.html?img=japan1.png&name=Japan National kit Jersey&price=245&sizes=S,M,L,XL">
+        <img src="Japan1.png" alt="Japan Jersey" />
+        <p>Japan National Kit - ₹245</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- OVERSIZED JERSEY CATALOG -->
+  <section id="oversized-jersey" class="catalog-section">
+    <h2>Oversized Jerseys</h2>
+    <div class="product-grid">
+      <!-- keep the exact file params you used -->
+      <a class="product" href="details.html?img=trendjersey1.png&name=CR7 Real Madrid Jersey&price=300&sizes=S,M,L,XL"><img src="trendjersey1.png" alt="Jersey 1"><p>CR7 REAL MADRID</p></a>
+      <a class="product" href="details.html?img=pele1.png&name=Pele Baackprint Jersey&price=290&sizes=S,M,L,XL"><img src="pele1.png" alt="Jersey 2"><p>Oversized Pele Jersey</p></a>
+    </div>
+
+    <a href="#collections" class="back-btn">⬅ Back to Catalog</a>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>📞 Phone: +91 9600847928, +91 7339645067</p>
+    <p>⏩ Shipping All Over India</p>
+    <p>⏩ NOCOD🚫 ONLY GPAY OR BANKING 🤗</p>
+    <p>📸 Instagram: <a href="https://instagram.com/jas_trendz__51" target="_blank">@jastrendz</a></p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Aerora Jersey — All Rights Reserved
+  </footer>
+
+</body>
+</html>
