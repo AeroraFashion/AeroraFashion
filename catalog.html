@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Catalog - Aerora Jerseys</title>
+  <style>
+    body { font-family:'Montserrat',sans-serif; margin:0; background:#fff; color:#000; }
+    header { background:#000; color:#fff; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; }
+    header .brand { font-weight:800; font-size:1.5em; }
+    header a { color:#fff; text-decoration:none; margin-left:15px; }
+    .wrap { max-width:1100px; margin:auto; padding:40px 20px; }
+    h2 { text-align:center; margin-bottom:25px; border-bottom:2px solid #000; display:inline-block; padding:5px 15px; }
+    .product-grid { display:grid; gap:20px; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); }
+    .product-card, .product {
+      border-radius:10px; padding:15px; text-align:center; text-decoration:none; transition:0.3s;
+      display:block; box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    }
+    .product-card { background:#fff; color:#000; border:1px solid #000; }
+    .product { background:#000; color:#fff; }
+    .product-card:hover, .product:hover { transform:translateY(-5px) scale(1.02); box-shadow:0 8px 18px rgba(0,0,0,0.2); }
+    .product-card img, .product img { width:100%; height:200px; object-fit:cover; border-radius:10px; }
+    .product-card p, .product p { margin:10px 0 0; font-weight:bold; }
+    .back-btn {
+      display:block; margin:40px auto 0; text-align:center; background:#000; color:#fff;
+      padding:12px 24px; border:none; border-radius:8px; cursor:pointer; text-decoration:none; font-weight:600;
+    }
+    .back-btn:hover { background:#fff; color:#000; border:1px solid #000; }
+    footer { background:#000; color:#fff; text-align:center; padding:15px; margin-top:40px; }
+  </style>
+
+  <!-- 🔥 Offer Slider -->
+  <style>
+   .offer-slider {
+     background:#000;
+     color:#fff;
+     text-align:center;
+     padding:12px 0;
+     font-size:1.2em;
+     font-weight:700;
+     overflow:hidden;
+     position:relative;
+   }
+   .offer-slider .slide { display:none; animation:fadeIn 0.8s ease-in-out; }
+   .offer-slider .slide.active { display:block; }
+   @keyframes fadeIn {
+     from { opacity:0; transform:translateY(10px); }
+     to { opacity:1; transform:translateY(0); }
+   }
+  </style>
+  <script>
+  window.onload = function() {
+    let slides = document.querySelectorAll(".offer-slider .slide");
+    let index = 0;
+    function showSlide(){
+      slides.forEach((s,i)=>{ 
+        s.classList.remove("active");
+        if(i===index) s.classList.add("active");
+      });
+      index = (index+1) % slides.length;
+    }
+    showSlide();
+    setInterval(showSlide, 2500);
+  };
+  </script>
+</head>
+<body>
+  <header>
+    <div class="brand">Aerora Jersey</div>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <!-- Offer Slider -->
+  <div class="offer-slider">
+    <div class="slide active">✨ Diwali Offer ✨</div>
+    <div class="slide">⏳ Limited Time ⏳</div>
+    <div class="slide">🔥 Flat 10% OFF 🔥</div>
+  </div>
+
+  <!-- 🔥 New Down Shoulder Jerseys Section -->
+  <main class="wrap" id="downshoulder">
+    <h2>Down Shoulder Jerseys</h2>
+    <div class="product-grid">
+      <a class="product-card" href="details.html?img=rmf1.png&name=Real%20Madrid%20Down%20Shoulder&price=315&sizes=S,M,L,XL">
+        <img src="rmf1.png" alt="Real Madrid Down Shoulder">
+        <p><span style="text-decoration:line-through;color:#777;">₹350</span> <span style="color:red;">₹315</span></p>
+      </a>
+      <a class="product-card" href="details.html?img=fcbf1.png&name=FC%20Barcelona%20Down%20Shoulder&price=315&sizes=S,M,L,XL">
+        <img src="fcbf1.png" alt="FC Barcelona Down Shoulder">
+        <p><span style="text-decoration:line-through;color:#777;">₹350</span> <span style="color:red;">₹315</span></p>
+      </a>
+      <a class="product-card" href="details.html?img=Muf1.png&name=Manchester%20United%20Down%20Shoulder&price=315&sizes=S,M,L,XL">
+        <img src="Muf1.png" alt="Manchester United Down Shoulder">
+        <p><span style="text-decoration:line-through;color:#777;">₹350</span> <span style="color:red;">₹315</span></p>
+      </a>
+      <a class="product-card" href="details.html?img=Acmf1.png&name=AC%20Milan%20Down%20Shoulder&price=315&sizes=S,M,L,XL">
+        <img src="Acmf1.png" alt="AC Milan Down Shoulder">
+        <p><span style="text-decoration:line-through;color:#777;">₹350</span> <span style="color:red;">₹315</span></p>
+      </a>
+      <a class="product-card" href="details.html?img=Cfcf1.png&name=Chelsea%20Down%20Shoulder&price=315&sizes=S,M,L,XL">
+        <img src="Cfcf1.png" alt="Chelsea Down Shoulder">
+        <p><span style="text-decoration:line-through;color:#777;">₹350</span> <span style="color:red;">₹315</span></p>
+      </a>
+      <a class="product-card" href="details.html?img=Fcbf2.png&name=FC%20Barcelona%20Alt%20Down%20Shoulder&price=315&sizes=S,M,L,XL">
+        <img src="Fcbf2.png" alt="FC Barcelona Alt Down Shoulder">
+        <p><span style="text-decoration:line-through;color:#777;">₹350</span> <span style="color:red;">₹315</span></p>
+      </a>
+    </div>
+  </main>
+
+  <!-- Jerseys -->
+  <main class="wrap" id="jersey">
+    <h2>Jerseys</h2>
+    <div class="product-grid">
+      <a class="product-card" href="details.html?img=Acmilan.png&name=AC%20Milan%20Jersey&price=255&sizes=S,M,L,XL">
+        <img src="Acmilan.png" alt="AC Milan Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹283</span> <span style="color:red;">₹255</span></p>
+      </a>
+      <a class="product-card" href="details.html?img=RMA1.png&name=Real%20Madrid%20Jersey&price=260&sizes=S,M,L,XL">
+        <img src="RMA1.png" alt="Real Madrid Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹289</span> <span style="color:red;">₹260</span></p>
+      </a>
+      <a class="product-card" href="details.html?img=barca1.png&name=FC%20Barcelona%20Jersey&price=260&sizes=S,M,L,XL">
+        <img src="barca1.png" alt="FC Barcelona Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹289</span> <span style="color:red;">₹260</span></p>
+      </a>
+      <a class="product-card" href="details.html?img=ManUTD1.png&name=Manchester%20United%20Jersey&price=255&sizes=S,M,L,XL">
+        <img src="ManUTD1.png" alt="Manchester United Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹283</span> <span style="color:red;">₹255</span></p>
+      </a>
+      <a class="product-card" href="details.html?img=FCporto.png&name=FC%20Porto%20Jersey&price=240&sizes=S,M,L,XL">
+        <img src="FCporto.png" alt="FC Porto Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹266</span> <span style="color:red;">₹240</span></p>
+      </a>
+      <a class="product-card" href="details.html?img=Brazil1.png&name=Brazil%20Retro%20Kit%20Jersey&price=259&sizes=S,M,L,XL">
+        <img src="Brazil1.png" alt="Brazil Retro Kit Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹287</span> <span style="color:red;">₹259</span></p>
+      </a>
+      <a class="product-card" href="details.html?img=Japan1.png&name=Japan%20National%20Kit%20Jersey&price=245&sizes=S,M,L,XL">
+        <img src="Japan1.png" alt="Japan National Kit Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹272</span> <span style="color:red;">₹245</span></p>
+      </a>
+    </div>
+  </main>
+
+  <!-- Oversized Jerseys -->
+  <main class="wrap" id="oversized">
+    <h2>Oversized Jerseys</h2>
+    <div class="product-grid">
+      <a class="product" href="details.html?img=trendjersey1.png&name=CR7%20Real%20Madrid%20Oversized&price=300&sizes=S,M,L,XL">
+        <img src="trendjersey1.png" alt="CR7 Real Madrid Oversized Jersey">
+        <p><span style="text-decoration:line-through;color:#bbb;">₹333</span> <span style="color:red;">₹300</span></p>
+      </a>
+      <a class="product" href="details.html?img=pele1.png&name=Pele%20Backprint%20Oversized&price=290&sizes=S,M,L,XL">
+        <img src="pele1.png" alt="Pele Backprint Oversized Jersey">
+        <p><span style="text-decoration:line-through;color:#bbb;">₹322</span> <span style="color:red;">₹290</span></p>
+      </a>
+    </div>
+  </main>
+
+  <a href="index.html" class="back-btn">⬅ Back to Home</a>
+  <footer>© 2025 Aerora Jersey — All Rights Reserved</footer>
+</body>
+</html>
