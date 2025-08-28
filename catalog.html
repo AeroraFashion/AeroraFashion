@@ -15,7 +15,7 @@
       border-radius:10px; padding:15px; text-align:center; text-decoration:none; transition:0.3s;
       display:block; box-shadow:0 4px 10px rgba(0,0,0,0.1);
     }
-    .product-card { background:#fff; color:#000; border:1px solid #000; }
+    .product-card { background:#ffffff; color:#000; border:1px solid #000; }
     .product { background:#000; color:#fff; }
     .product-card:hover, .product:hover { transform:translateY(-5px) scale(1.02); box-shadow:0 8px 18px rgba(0,0,0,0.2); }
     .product-card img, .product img { width:100%; height:200px; object-fit:cover; border-radius:10px; }
@@ -28,40 +28,154 @@
     footer { background:#000; color:#fff; text-align:center; padding:15px; margin-top:40px; }
   </style>
 
-  <!-- 🔥 Offer Slider -->
   <style>
    .offer-slider {
      background:#000;
-     color:#fff;
-     text-align:center;
-     padding:12px 0;
-     font-size:1.2em;
-     font-weight:700;
-     overflow:hidden;
-     position:relative;
-   }
-   .offer-slider .slide { display:none; animation:fadeIn 0.8s ease-in-out; }
-   .offer-slider .slide.active { display:block; }
-   @keyframes fadeIn {
-     from { opacity:0; transform:translateY(10px); }
-     to { opacity:1; transform:translateY(0); }
-   }
-  </style>
-  <script>
-  window.onload = function() {
-    let slides = document.querySelectorAll(".offer-slider .slide");
-    let index = 0;
-    function showSlide(){
-      slides.forEach((s,i)=>{ 
-        s.classList.remove("active");
-        if(i===index) s.classList.add("active");
-      });
-      index = (index+1) % slides.length;
-    }
-    showSlide();
-    setInterval(showSlide, 2500);
-  };
-  </script>
+    color:#fff;
+    text-align:center;
+    padding:12px 0;
+    font-size:1.2em;
+    font-weight:700;
+    overflow:hidden;
+    position:relative;
+  }
+  .offer-slider .slide {
+    display:none;
+    animation:fadeIn 1s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from { opacity:0; transform:translateY(10px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+</style>
+
+<script>
+  let slides=document.querySelectorAll(".offer-slider .slide");
+ let index=0;
+ function showSlide(){
+   slides.forEach((s,i)=>{ s.style.display = i===index ? "block" : "none"; });
+   index=(index+1)%slides.length;
+ }
+ showSlide();
+ setInterval(showSlide,1500); // ⏱️ change every 1.5 seconds
+</script>
+
+
+<!-- 🔥 Offer Slider -->
+<div class="offer-slider">
+  <div class="slide active">✨ Diwali Offer ✨</div>
+  <div class="slide">⏳ Limited Time ⏳</div>
+  <div class="slide">🔥 Flat 10% OFF 🔥</div>
+</div>
+
+<style>
+ .offer-slider {
+   background:#000;
+   color:#fff;
+   text-align:center;
+   padding:12px 0;
+   font-size:1.2em;
+   font-weight:700;
+   overflow:hidden;
+   position:relative;
+ }
+ .offer-slider .slide {
+   display:none;
+   animation:fadeIn 0.8s ease-in-out;
+ }
+ .offer-slider .slide.active {
+   display:block;
+ }
+ @keyframes fadeIn {
+   from { opacity:0; transform:translateY(10px); }
+   to { opacity:1; transform:translateY(0); }
+ }
+
+ body {
+   font-family: 'Montserrat', sans-serif;
+   margin: 0;
+   background: #fff;
+   color: #000;
+ }
+
+ .wrap {
+   max-width: 1100px;
+   margin: auto;
+   padding: 40px 20px;
+ }
+
+ h2 {
+   text-align: center;
+   margin-bottom: 25px;
+   border-bottom: 2px solid #000;
+   display: inline-block;
+  padding: 5px 15px;
+ }
+
+ .product-grid {
+   display: grid;
+   gap: 20px;
+   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+ }
+
+ .product-card {
+   background: #fff;
+   color: #000;
+   border: 1px solid #000;
+   border-radius: 10px;
+   padding: 15px;
+   text-align: center;
+   text-decoration: none;
+   display: block;
+   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+   transition: 0.3s;
+ }
+
+ .product-card:hover {
+   transform: translateY(-5px) scale(1.02);
+   box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+ }
+
+ .product-card img {
+   width: 100%;
+   height: 200px;
+   object-fit: cover;
+   border-radius: 10px;
+ }
+
+ .product-card p {
+   margin: 10px 0 0;
+    font-weight: bold;
+ }
+
+ .mrp {
+   text-decoration: line-through;
+   color: #777;
+   margin-right: 6px;
+ }
+
+ .deal {
+   color: red;
+ }
+
+</style>
+
+<script>
+window.onload = function() {
+  let slides = document.querySelectorAll(".offer-slider .slide");
+  let index = 0;
+  function showSlide(){
+    slides.forEach((s,i)=>{ 
+      s.classList.remove("active");
+      if(i===index) s.classList.add("active");
+    });
+    index = (index+1) % slides.length;
+  }
+  showSlide();
+  setInterval(showSlide, 2500); // ⏱️ every 2.5 seconds
+};
+</script>
+
 </head>
 <body>
   <header>
@@ -71,93 +185,153 @@
     </nav>
   </header>
 
-  <!-- Offer Slider -->
-  <div class="offer-slider">
-    <div class="slide active">✨ Diwali Offer ✨</div>
-    <div class="slide">⏳ Limited Time ⏳</div>
-    <div class="slide">🔥 Flat 10% OFF 🔥</div>
-  </div>
+  <main class="wrap" id="jersey">
+    <h2>Jerseys</h2>
+    <div class="product-grid">
+      <a class="product-card" href="Details.html?img=manutd4.png&name=Manchester%20United&price=249&sizes=M,L,XL">
+        <img src="manutd4.png" alt="Manchester United Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹277</span> <span style="color:red;">₹249</span></p>
+      </a>
+      <a class="product-card" href="Details.html?img=portugal1.png&name=Portugal&price=249&sizes=M,L,XL">
+        <img src="portugal1.png" alt="Portugal Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹277</span> <span style="color:red;">₹249</span></p>
+      </a>
+      <a class="product-card" href="Details.html?img=brazil1.png&name=Brazil%20Kit&price=260&sizes=M,L,XL">
+        <img src="brazil1.png" alt="brazil">
+        <p><span style="text-decoration:line-through;color:#777;">₹391</span> <span style="color:red;">₹260</span></p>
+      </a>
+      <a class="product-card" href="Details.html?img=rma1.png&name=Real%20Madrid&price=260&sizes=M,L,XL">
+        <img src="rma1.png" alt="Real Madrid Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹289</span> <span style="color:red;">₹260</span></p>
+      </a>
+      <a class="product-card" href="Details.html?img=rma2.png&name=Real%20Madrid&price=260&sizes=M,L,XL">
+        <img src="rma2.png" alt="Real Madrid Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹289</span> <span style="color:red;">₹260</span></p>
+      </a>
+      <a class="product-card" href="Details.html?img=rma3.png&name=Full%20Sleeve%20Real%20Madrid&price=280&sizes=M,L,XL">
+        <img src="rma3.png" alt="Full Sleeve Real Madrid Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹311</span> <span style="color:red;">₹280</span></p>
+      </a>
+      <a class="product-card" href="Details.html?img=rma4.png&name=Real%20Madrid&price=260&sizes=M,L,XL">
+        <img src="rma4.png" alt="Real Madrid Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹289</span> <span style="color:red;">₹260</span></p>
+      </a>
+      <a class="product-card" href="Details.html?img=rma5.png&name=Full%20Sleeve%20Unofficial%20Real%20Madrid&price=285&sizes=M,L,XL">
+        <img src="rma5.png" alt="Full Sleeve Unofficial Real Madrid Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹317</span> <span style="color:red;">₹285</span></p>
+      </a>
+      <a class="product-card" href="Details.html?img=rma6.png&name=Full%20Sleeve%20Bellingham%20Real%20Madrid&price=275&sizes=M,L,XL">
+        <img src="rma6.png" alt="Full Sleeve Bellingham Real Madrid Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹305</span> <span style="color:red;">₹275</span></p>
+      </a>
+      <a class="product-card" href="Details.html?img=rma7.png&name=Full%20Sleeve%20Bellingham%20Real%20Madrid&price=275&sizes=M,L,XL">
+        <img src="rma7.png" alt="Full Sleeve Bellingham Real Madrid Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹305</span> <span style="color:red;">₹275</span></p>
+      </a>
+      <a class="product-card" href="Details.html?img=spain1.png&name=Spain%20Kit&price=255&sizes=M,L,XL">
+        <img src="spain1.png" alt="Spain Kit Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹283</span> <span style="color:red;">₹255</span></p>
+      </a>
+      <a class="product-card" href="Details.html?img=barca1.png&name=Barcelona%20Official%20Kit&price=260&sizes=M,L,XL">
+        <img src="barca1.png" alt="Barcelona Official Kit Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹289</span> <span style="color:red;">₹260</span></p>
+      </a>
+      <a class="product-card" href="Details.html?img=barca3.png&name=Full%20Sleeve%20Barcelona%20Kit&price=279&sizes=M,L,XL">
+        <img src="barca3.png" alt="Full Sleeve Barcelona Kit Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹310</span> <span style="color:red;">₹279</span></p>
+      </a>
+      <a class="product-card" href="Details.html?img=arsenal1.png&name=Arsenal%20Kit%20Full%20Sleeve&price=279&sizes=M,L,XL">
+        <img src="arsenal1.png" alt="Arsenal Kit Full Sleeve Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹310</span> <span style="color:red;">₹279</span></p>
+      </a>
+      <a class="product-card" href="Details.html?img=inter1.png&name=Inter%20Milan%20Jersey&price=240&sizes=M,L,XL">
+        <img src="inter1.png" alt="Inter Milan Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹266</span> <span style="color:red;">₹240</span></p>
+      </a>
+      <a class="product-card" href="Details.html?img=chelsea1.png&name=full%20sleeve%20chelsea%20jersey&price=269&sizes=M,L,XL">
+        <img src="chelsea1.png" alt="chelsea Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹299</span> <span style="color:red;">₹269</span></p>
+      </a>
+      <a class="product-card" href="Details.html?img=france1.png&name=Retro%20France%20Jersey&price=280&sizes=M,L,XL">
+        <img src="france1.png" alt="france Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹320</span> <span style="color:red;">₹280</span></p>
+      </a>
+      <a class="product-card" href="Details.html?img=sporting1.png&name=CR7%20Sporting%20Jersey&price=270&sizes=M,L,XL">
+        <img src="sporting1.png" alt="sporting Jersey">
+        <p><span style="text-decoration:line-through;color:#777;">₹300</span> <span style="color:red;">₹270</span></p>
+      </a>
+    </div>
+  </main>
 
-  <!-- 🔥 New Down Shoulder Jerseys Section -->
+  <main class="wrap" id="oversized">
+    <h2>Oversized Jerseys</h2>
+    <div class="product-grid">
+      <a class="product" href="Details.html?img=trendjersey1.png&name=CR7%20Real%20Madrid%20Oversized&price=300&sizes=,M,L,XL">
+        <img src="trendjersey1.png" alt="CR7 Real Madrid Oversized Jersey">
+        <p><span style="text-decoration:line-through;color:#bbb;">₹450</span> <span style="color:red;">₹340</span></p>
+      </a>
+      <a class="product" href="Details.html?img=pele1.png&name=Pele%20Backprint%20Oversized&price=290&sizes=,M,L,XL">
+        <img src="pele1.png" alt="Pele Backprint Oversized Jersey">
+        <p><span style="text-decoration:line-through;color:#bbb;">₹400</span> <span style="color:red;">₹340</span></p>
+      </a>
+      <a class="product" href="Details.html?img=argentina1.png&name=Argentina%20Oversized%20Jersey&price=340&sizes=,M,L,XL">
+        <img src="argentina1.png" alt="Argentina Oversized Jersey">
+        <p><span style="text-decoration:line-through;color:#bbb;">₹400</span> <span style="color:red;">₹340</span></p>
+      </a>
+      <a class="product" href="Details.html?img=portugal2.png&name=Portugal%20CR7%20Jersey&price=340&sizes=,M,L,XL">
+        <img src="portugal2.png" alt="Portugal CR7 Jersey">
+        <p><span style="text-decoration:line-through;color:#bbb;">₹460</span> <span style="color:red;">₹340</span></p>
+      </a>
+    </div>
+  </main>
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Down Shoulder Jerseys</title>
+  <link rel="stylesheet" href="downshoulder.css">
+</head>
+<body>
+
+  <!-- 🔥 Down Shoulder Jerseys Only -->
   <main class="wrap" id="downshoulder">
     <h2>Down Shoulder Jerseys</h2>
     <div class="product-grid">
       <a class="product-card" href="Details.html?img=rmf1.png&name=Real%20Madrid%20Down%20Shoulder&price=315&sizes=S,M,L,XL">
         <img src="rmf1.png" alt="Real Madrid Down Shoulder">
-        <p><span style="text-decoration:line-through;color:#777;">₹350</span> <span style="color:red;">₹315</span></p>
+        <p><span class="mrp">₹350</span> <span class="deal">₹315</span></p>
       </a>
-      <a class="product-card" href="Details.html?img=Fcbf1.png&name=FC%20Barcelona%20Down%20Shoulder&price=315&sizes=S,M,L,XL">
-        <img src="Fcbf1.png" alt="FC Barcelona Down Shoulder">
-        <p><span style="text-decoration:line-through;color:#777;">₹350</span> <span style="color:red;">₹315</span></p>
+
+      <a class="product-card" href="Details.html?img=fcbf1.png&name=FC%20Barcelona%20Down%20Shoulder&price=315&sizes=S,M,L,XL">
+        <img src="fcbf1.png" alt="FC Barcelona Down Shoulder">
+        <p><span class="mrp">₹350</span> <span class="deal">₹315</span></p>
       </a>
+
       <a class="product-card" href="Details.html?img=Muf1.png&name=Manchester%20United%20Down%20Shoulder&price=315&sizes=S,M,L,XL">
         <img src="Muf1.png" alt="Manchester United Down Shoulder">
-        <p><span style="text-decoration:line-through;color:#777;">₹350</span> <span style="color:red;">₹315</span></p>
+        <p><span class="mrp">₹350</span> <span class="deal">₹315</span></p>
       </a>
+
       <a class="product-card" href="Details.html?img=Acmf1.png&name=AC%20Milan%20Down%20Shoulder&price=315&sizes=S,M,L,XL">
         <img src="Acmf1.png" alt="AC Milan Down Shoulder">
-        <p><span style="text-decoration:line-through;color:#777;">₹350</span> <span style="color:red;">₹315</span></p>
+        <p><span class="mrp">₹350</span> <span class="deal">₹315</span></p>
       </a>
+
       <a class="product-card" href="Details.html?img=Cfcf1.png&name=Chelsea%20Down%20Shoulder&price=315&sizes=S,M,L,XL">
         <img src="Cfcf1.png" alt="Chelsea Down Shoulder">
-        <p><span style="text-decoration:line-through;color:#777;">₹350</span> <span style="color:red;">₹315</span></p>
+        <p><span class="mrp">₹350</span> <span class="deal">₹315</span></p>
       </a>
+
       <a class="product-card" href="Details.html?img=Fcbf2.png&name=FC%20Barcelona%20Alt%20Down%20Shoulder&price=315&sizes=S,M,L,XL">
         <img src="Fcbf2.png" alt="FC Barcelona Alt Down Shoulder">
-        <p><span style="text-decoration:line-through;color:#777;">₹350</span> <span style="color:red;">₹315</span></p>
+        <p><span class="mrp">₹350</span> <span class="deal">₹315</span></p>
       </a>
     </div>
   </main>
 
-  <!-- Jerseys -->
-  <main class="wrap" id="jersey">
-    <h2>Jerseys</h2>
-    <div class="product-grid">
-      <a class="product-card" href="Details.html?img=Acmilan.png&name=AC%20Milan%20Jersey&price=255&sizes=S,M,L,XL">
-        <img src="Acmilan.png" alt="AC Milan Jersey">
-        <p><span style="text-decoration:line-through;color:#777;">₹283</span> <span style="color:red;">₹255</span></p>
-      </a>
-      <a class="product-card" href="Details.html?img=RMA1.png&name=Real%20Madrid%20Jersey&price=260&sizes=S,M,L,XL">
-        <img src="RMA1.png" alt="Real Madrid Jersey">
-        <p><span style="text-decoration:line-through;color:#777;">₹289</span> <span style="color:red;">₹260</span></p>
-      </a>
-      <a class="product-card" href="Details.html?img=barca1.png&name=FC%20Barcelona%20Jersey&price=260&sizes=S,M,L,XL">
-        <img src="barca1.png" alt="FC Barcelona Jersey">
-        <p><span style="text-decoration:line-through;color:#777;">₹289</span> <span style="color:red;">₹260</span></p>
-      </a>
-      <a class="product-card" href="Details.html?img=ManUTD1.png&name=Manchester%20United%20Jersey&price=255&sizes=S,M,L,XL">
-        <img src="ManUTD1.png" alt="Manchester United Jersey">
-        <p><span style="text-decoration:line-through;color:#777;">₹283</span> <span style="color:red;">₹255</span></p>
-      </a>
-      <a class="product-card" href="Details.html?img=FCporto.png&name=FC%20Porto%20Jersey&price=240&sizes=S,M,L,XL">
-        <img src="FCporto.png" alt="FC Porto Jersey">
-        <p><span style="text-decoration:line-through;color:#777;">₹266</span> <span style="color:red;">₹240</span></p>
-      </a>
-      <a class="product-card" href="Details.html?img=Brazil1.png&name=Brazil%20Retro%20Kit%20Jersey&price=259&sizes=S,M,L,XL">
-        <img src="Brazil1.png" alt="Brazil Retro Kit Jersey">
-        <p><span style="text-decoration:line-through;color:#777;">₹287</span> <span style="color:red;">₹259</span></p>
-      </a>
-      <a class="product-card" href="Details.html?img=Japan1.png&name=Japan%20National%20Kit%20Jersey&price=245&sizes=S,M,L,XL">
-        <img src="Japan1.png" alt="Japan National Kit Jersey">
-        <p><span style="text-decoration:line-through;color:#777;">₹272</span> <span style="color:red;">₹245</span></p>
-      </a>
-    </div>
-  </main>
-
-  <!-- Oversized Jerseys -->
-  <main class="wrap" id="oversized">
-    <h2>Oversized Jerseys</h2>
-    <div class="product-grid">
-      <a class="product" href="Details.html?img=trendjersey1.png&name=CR7%20Real%20Madrid%20Oversized&price=300&sizes=S,M,L,XL">
-        <img src="trendjersey1.png" alt="CR7 Real Madrid Oversized Jersey">
-        <p><span style="text-decoration:line-through;color:#bbb;">₹333</span> <span style="color:red;">₹300</span></p>
-      </a>
-      <a class="product" href=Details.html?img=pele1.png&name=Pele%20Backprint%20Oversized&price=290&sizes=S,M,L,XL">
-        <img src="pele1.png" alt="Pele Backprint Oversized Jersey">
-        <p><span style="text-decoration:line-through;color:#bbb;">₹322</span> <span style="color:red;">₹290</span></p>
-      </a>
-    </div>
-  </main>
+</body>
+</html>
 
   <a href="index.html" class="back-btn">⬅ Back to Home</a>
   <footer>© 2025 Aerora Jersey — All Rights Reserved</footer>
