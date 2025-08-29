@@ -179,6 +179,12 @@
     document.getElementById("hiddenName").value = name;
     document.getElementById("hiddenPrice").value = price;
     document.getElementById("hiddenImg").value = img;
+
+    if (response.ok) {
+      window.location.href = "success.html"; // redirect to your page
+    } else {
+      alert("There was an error. Please try again.");
+    }
   </script>
 </body>
 </html>
